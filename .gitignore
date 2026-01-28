@@ -86,7 +86,3 @@ app/config/parameters.yml
 ############################
 *.bak
 *.tmp
-
-############################
-# uso npm
-yarn.lock
