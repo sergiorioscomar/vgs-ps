@@ -26,8 +26,11 @@
   {if !$configuration.is_catalog}
 
     {block name='product_quantity'}
-      <div class="product-quantity row mb-1 mx-n1 mt-n2 align-items-center">
-        <div class="qty col-12 col-sm-auto mx-auto mt-2 px-1">
+      <div class="product-quantity d-flex flex-column flex-md-row align-items-stretch align-items-md-center mb-1">
+        <div class="qty d-flex align-items-center justify-content-center justify-content-md-start mb-2 mb-md-0 mr-md-3">
+          <label class="quantity-label mr-2 mb-0 text-nowrap" for="quantity_wanted">
+            {l s='Cantidad' d='Shop.Theme.Actions'}
+          </label>
           <input
             type="number"
             name="qty"
@@ -46,7 +49,7 @@
           >
         </div>
 
-        <div class="add col mt-2 px-1">
+        <div class="add flex-grow-1 flex-md-grow-0">
           <button
             class="btn btn-primary add-to-cart btn-block"
             data-button-action="add-to-cart"
@@ -55,7 +58,7 @@
               disabled
             {/if}
           >
-            {l s='Add to cart' d='Shop.Theme.Actions'}
+            {l s='Añadir a la cesta' d='Shop.Theme.Actions'}
           </button>
         </div>
 
@@ -73,23 +76,25 @@
     {block name='product_availability'}
       <span id="product-availability" class="js-product-availability">
         {if $product.show_availability && $product.availability_message}
-          <span
+          <span class="availability-msg-container">
+            <span
+              {if $product.availability == 'available'}
+                class="badge badge-success py-1 mb-1"
+              {elseif $product.availability == 'last_remaining_items'}
+                class="badge badge-warning py-1 mb-1"
+              {else}
+                  class="badge badge-danger py-1 mb-1"
+              {/if}
+            >
             {if $product.availability == 'available'}
-              class="badge badge-success py-1 mb-1"
+              <i class="material-icons rtl-no-flip font-reset align-bottom">&#xE5CA;</i>
             {elseif $product.availability == 'last_remaining_items'}
-              class="badge badge-warning py-1 mb-1"
+              <i class="material-icons font-reset align-bottom">&#xE002;</i>
             {else}
-                class="badge badge-danger py-1 mb-1"
+              <i class="material-icons font-reset align-bottom">&#xE14B;</i>
             {/if}
-          >
-          {if $product.availability == 'available'}
-            <i class="material-icons rtl-no-flip font-reset align-bottom">&#xE5CA;</i>
-          {elseif $product.availability == 'last_remaining_items'}
-            <i class="material-icons font-reset align-bottom">&#xE002;</i>
-          {else}
-            <i class="material-icons font-reset align-bottom">&#xE14B;</i>
-          {/if}
-          {$product.availability_message}
+            {$product.availability_message}
+            </span>
           </span>
         {/if}
       </span>

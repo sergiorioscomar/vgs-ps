@@ -1,0 +1,298 @@
+/* 
+ * Custom Product Cards Design  * Diseño personalizado según especificaciones Figma
+ */
+
+/* Cargar Google Font Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Product Card Base */
+.product-miniature.card {
+  border: 1px solid #3281894D !important;
+  border-radius: 8px !important;
+  transition: box-shadow 0.3s ease;
+  background: white;
+  padding: 0 !important;
+  overflow: hidden;
+  width: 100%;
+  max-width: 312px;
+  /* Reducido min-height para evitar espacio extra abajo */
+  min-height: auto;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-miniature.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Imagen del producto */
+.product-miniature__thumb {
+  padding: 15px 20px;
+  background: white;
+  position: relative;
+}
+
+.product-miniature__thumb-link {
+  display: block;
+}
+
+.product-miniature__thumb img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Sección de nombre y precio con fondo */
+.product-miniature__info {
+  background: #BAE4EB33;
+  padding: 15px 20px;
+  /* Padding equilibrado */
+  /* Reducido gap para menos espacio vertical */
+  gap: 4px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  /* Asegurar que el contenido no se estire innecesariamente */
+  justify-content: flex-start;
+  /* Mantener altura consistente entre cards */
+  min-height: 110px;
+}
+
+/* Badges - Posicionamiento */
+.product-flags {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.product-flags__flag,
+.product-flag {
+  padding: 8px 14px;
+  /* Aumentado padding interno */
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 110%;
+  text-transform: capitalize;
+  margin-bottom: 6px;
+  display: block;
+  width: fit-content;
+}
+
+/* Badge NUEVO */
+.product-flags__flag--new,
+.product-flag.new {
+  background-color: #328189 !important;
+  color: #FFFFFF !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  font-size: 12px !important;
+  line-height: 110% !important;
+  text-transform: uppercase !important;
+}
+
+/* Ocultar badge de descuento del contenedor superior (flags) ya que se muestra abajo */
+.product-flags .product-flags__flag--discount,
+.product-flags .product-flag.discount,
+.product-flags .product-flag.discount-percentage,
+.product-flags .product-flag.discount-amount {
+  display: none !important;
+}
+
+/* Ocultar botón Añadir al carrito SOLO en miniaturas (listado) */
+.product-miniature .product-add-to-cart,
+.product-miniature .add-to-cart,
+.product-miniature .product-miniature__form,
+.product-miniature form.cart-content-btn {
+  display: none !important;
+}
+
+/* Badge FUERA DE STOCK */
+.product-flags__flag--out-of-stock,
+.product-flags__flag--unavailable,
+.product-flags__flag--last-items,
+.product-flag.out_of_stock,
+.product-flag.out-of-stock,
+.product-flag.outofstock,
+.product-flag.unavailable,
+.product-flag.last-items {
+  background-color: #FFC304 !important;
+  color: #545454 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 110% !important;
+  text-transform: uppercase !important;
+}
+
+/* Nombre del Producto */
+.product-miniature__title,
+.product-miniature__title a {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  line-height: 130% !important;
+  color: #272343 !important;
+  text-transform: capitalize;
+  margin-bottom: 8px !important;
+  text-decoration: none !important;
+  display: block;
+  /* Limitar a 2 líneas para altura consistente */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.6em;
+}
+
+.product-miniature__title a:hover {
+  color: #328189 !important;
+}
+
+/* Prices Container */
+.product-miniature__pricing {
+  margin: 0 !important;
+  text-align: left !important;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Precio Actual */
+.price:not(.price--regular) {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 110% !important;
+  color: #328189 !important;
+  text-transform: capitalize;
+  order: 1;
+}
+
+/* Precio Anterior (tachado) */
+.price--regular,
+span.price--regular {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  line-height: 110% !important;
+  color: #545454 !important;
+  text-decoration: line-through !important;
+  text-transform: capitalize;
+  opacity: 0.5 !important;
+  order: 2;
+}
+
+/* Badge de Descuento Porcentual */
+.discount-percentage,
+.product-discount {
+  background-color: #D0C8EA80 !important;
+  color: #592BC7 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 110% !important;
+  padding: 8px 12px !important;
+  border-radius: 12px !important;
+  margin-left: 4px;
+  display: inline-block;
+  vertical-align: middle;
+  order: 3;
+}
+
+/* Agregar badge de descuento si PrestaShop usa otra clase */
+.product-flags__flag--discount,
+.product-flag.discount,
+.product-flag.discount-percentage,
+.product-flag.discount-amount {
+  background-color: #D0C8EA80 !important;
+  color: #592BC7 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 110% !important;
+}
+
+/* Ocultar elementos no necesarios del diseño original */
+.product-miniature__functional-btn {
+  display: none !important;
+}
+
+/* Ajustar form de producto si existe */
+.product-miniature__form,
+.product-add-to-cart {
+  margin-top: auto;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 767px) {
+  .product-miniature.card {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .product-miniature.card {
+    max-width: 100%;
+  }
+}
+
+/* Grid de productos - 3 columnas en desktop */
+.products-list .products-list__block {
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 991px) {
+  .products-list .products-list__block {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .products-list .products-list__block {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.products-list.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.product-flags__flag--out_of_stock,
+.product-flags__flag--outofstock {
+  background-color: #FFC304 !important;
+  color: #545454 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 110% !important;
+  text-transform: uppercase !important;
+}
+
+/* Ocultar badge PACK */
+.product-flags__flag--pack,
+.product-flag.pack,
+.product-flag--pack {
+  display: none !important;
+}
+
+/* Si hay FUERA DE STOCK, ocultar NUEVO */
+.product-flags.has-out-of-stock .product-flag.new {
+  display: none !important;
+}

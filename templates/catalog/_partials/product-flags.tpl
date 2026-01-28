@@ -23,9 +23,18 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 {block name='product_flags'}
-    <ul class="product-flags d-flex flex-column position-absolute w-100 pe-none">
+    {assign var=hasOutOfStock value=false}
+    {foreach from=$product.flags item=flag}
+        {if $flag.type == 'out_of_stock' || $flag.type == 'out-of-stock' || $flag.type == 'outofstock' || $flag.type == 'last-items' || $flag.type == 'unavailable'}
+            {assign var=hasOutOfStock value=true}
+        {/if}
+    {/foreach}
+
+    <ul class="product-flags js-product-flags{if $hasOutOfStock} has-out-of-stock{/if}">
         {foreach from=$product.flags item=flag}
-            <li class="product-flags__flag rounded product-flags__flag--{$flag.type}">{$flag.label}</li>
+            {if !($hasOutOfStock && $flag.type == 'new')}
+                <li class="product-flag {$flag.type}">{$flag.label}</li>
+            {/if}
         {/foreach}
     </ul>
 {/block}

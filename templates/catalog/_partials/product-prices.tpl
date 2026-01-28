@@ -27,16 +27,6 @@
 
     {block name='product_price'}
       <div class="product-price">
-        {if $product.has_discount}
-          {if $product.discount_type === 'percentage'}
-            <span class="badge badge-danger">{l s='Save %percentage%' d='Shop.Theme.Catalog' sprintf=['%percentage%' => $product.discount_percentage_absolute]}</span>
-          {else}
-            <span class="badge badge-danger">
-              {l s='Save %amount%' d='Shop.Theme.Catalog' sprintf=['%amount%' => $product.discount_to_display]}
-            </span>
-          {/if}
-        {/if}
-
         <div>
           <span class="price price--lg">
             {capture name='custom_price'}{hook h='displayProductPriceBlock' product=$product type='custom_price' hook_origin='product_sheet'}{/capture}
@@ -49,6 +39,11 @@
           {block name='product_discount'}
             {if $product.has_discount}
               <span class="ml-2 price price--regular">{$product.regular_price}</span>
+              {if $product.discount_type === 'percentage'}
+                <span class="badge badge-danger">-{$product.discount_percentage_absolute}</span>
+              {else}
+                <span class="badge badge-danger">-{$product.discount_to_display}</span>
+              {/if}
             {/if}
           {/block}
           {hook h='displayProductPriceBlock' product=$product type="old_price"}
