@@ -7,11 +7,11 @@
 
 /* Product Card Base */
 .product-miniature.card {
-  border: 1px solid #3281894D !important;
-  border-radius: 8px !important;
+  border: 1px solid #3281894D;
+  border-radius: 8px;
   transition: box-shadow 0.3s ease;
   background: white;
-  padding: 0 !important;
+  padding: 0;
   overflow: hidden;
   width: 100%;
   max-width: 312px;
@@ -61,12 +61,12 @@
 
 /* Badges - Posicionamiento */
 .product-flags {
-  position: absolute !important;
-  top: 10px !important;
-  left: 10px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none !important;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   z-index: 2;
   pointer-events: none;
 }
@@ -89,14 +89,14 @@
 /* Badge NUEVO */
 .product-flags__flag--new,
 .product-flag.new {
-  background-color: #328189 !important;
-  color: #FFFFFF !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 500 !important;
-  font-style: normal !important;
-  font-size: 12px !important;
-  line-height: 110% !important;
-  text-transform: uppercase !important;
+  background-color: #328189;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 110%;
+  text-transform: uppercase;
 }
 
 /* Ocultar badge de descuento del contenedor superior (flags) ya que se muestra abajo */
@@ -104,7 +104,7 @@
 .product-flags .product-flag.discount,
 .product-flags .product-flag.discount-percentage,
 .product-flags .product-flag.discount-amount {
-  display: none !important;
+  display: none;
 }
 
 /* Ocultar botón Añadir al carrito SOLO en miniaturas (listado) */
@@ -112,7 +112,7 @@
 .product-miniature .add-to-cart,
 .product-miniature .product-miniature__form,
 .product-miniature form.cart-content-btn {
-  display: none !important;
+  display: none;
 }
 
 /* Badge FUERA DE STOCK */
@@ -124,26 +124,26 @@
 .product-flag.outofstock,
 .product-flag.unavailable,
 .product-flag.last-items {
-  background-color: #FFC304 !important;
-  color: #545454 !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 12px !important;
-  line-height: 110% !important;
-  text-transform: uppercase !important;
+  background-color: #FFC304;
+  color: #545454;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 110%;
+  text-transform: uppercase;
 }
 
 /* Nombre del Producto */
 .product-miniature__title,
 .product-miniature__title a {
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 600 !important;
-  font-size: 15px !important;
-  line-height: 130% !important;
-  color: #272343 !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 130%;
+  color: #272343;
   text-transform: capitalize;
-  margin-bottom: 8px !important;
-  text-decoration: none !important;
+  margin-bottom: 8px;
+  text-decoration: none;
   display: block;
   /* Limitar a 2 líneas para altura consistente */
   display: -webkit-box;
@@ -154,13 +154,13 @@
 }
 
 .product-miniature__title a:hover {
-  color: #328189 !important;
+  color: #328189;
 }
 
 /* Prices Container */
 .product-miniature__pricing {
-  margin: 0 !important;
-  text-align: left !important;
+  margin: 0;
+  text-align: left;
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -169,11 +169,11 @@
 
 /* Precio Actual */
 .price:not(.price--regular) {
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 18px !important;
-  line-height: 110% !important;
-  color: #328189 !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 110%;
+  color: #328189;
   text-transform: capitalize;
   order: 1;
 }
@@ -181,28 +181,28 @@
 /* Precio Anterior (tachado) */
 .price--regular,
 span.price--regular {
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 18px !important;
-  line-height: 110% !important;
-  color: #545454 !important;
-  text-decoration: line-through !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 110%;
+  color: #545454;
+  text-decoration: line-through;
   text-transform: capitalize;
-  opacity: 0.5 !important;
+  opacity: 0.5;
   order: 2;
 }
 
 /* Badge de Descuento Porcentual */
 .discount-percentage,
 .product-discount {
-  background-color: #D0C8EA80 !important;
-  color: #592BC7 !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 12px !important;
-  line-height: 110% !important;
-  padding: 8px 12px !important;
-  border-radius: 12px !important;
+  background-color: #D0C8EA80;
+  color: #592BC7;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 110%;
+  padding: 8px 12px;
+  border-radius: 12px;
   margin-left: 4px;
   display: inline-block;
   vertical-align: middle;
@@ -214,17 +214,17 @@ span.price--regular {
 .product-flag.discount,
 .product-flag.discount-percentage,
 .product-flag.discount-amount {
-  background-color: #D0C8EA80 !important;
-  color: #592BC7 !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 12px !important;
-  line-height: 110% !important;
+  background-color: #D0C8EA80;
+  color: #592BC7;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 110%;
 }
 
 /* Ocultar elementos no necesarios del diseño original */
 .product-miniature__functional-btn {
-  display: none !important;
+  display: none;
 }
 
 /* Ajustar form de producto si existe */
@@ -276,23 +276,23 @@ span.price--regular {
 
 .product-flags__flag--out_of_stock,
 .product-flags__flag--outofstock {
-  background-color: #FFC304 !important;
-  color: #545454 !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 12px !important;
-  line-height: 110% !important;
-  text-transform: uppercase !important;
+  background-color: #FFC304;
+  color: #545454;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 110%;
+  text-transform: uppercase;
 }
 
 /* Ocultar badge PACK */
 .product-flags__flag--pack,
 .product-flag.pack,
 .product-flag--pack {
-  display: none !important;
+  display: none;
 }
 
 /* Si hay FUERA DE STOCK, ocultar NUEVO */
 .product-flags.has-out-of-stock .product-flag.new {
-  display: none !important;
+  display: none;
 }

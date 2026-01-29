@@ -45,37 +45,75 @@
 
 {block name='content'}
 
-  <section id="main">
+  <section id="main" class="product-page">
 
-    <div class="row product-container js-product-container">
-      <div class="col-md-5 mb-4">
+    <div class="product-container js-product-container product-main">
+      <div class="product-main__gallery">
         {block name='page_content_container'}
-            {block name='page_content'}
-              <div class="position-relative">
-                {include file='catalog/_partials/product-flags.tpl'}
+          {block name='page_content'}
+            <div class="product-gallery-card">
+              {include file='catalog/_partials/product-flags.tpl'}
 
-                {block name='product_cover_thumbnails'}
-                  {include file='catalog/_partials/product-cover-thumbnails.tpl'}
-                {/block}
-              </div>
-            {/block}
+              {block name='product_cover_thumbnails'}
+                {include file='catalog/_partials/product-cover-thumbnails.tpl'}
+              {/block}
+            </div>
+          {/block}
         {/block}
-        </div>
-        <div class="col-md-7 mb-4">
+      </div>
+      <div class="product-main__summary">
+        <div class="product-summary">
           {block name='page_header_container'}
             {block name='page_header'}
-              <h1 class="h1">{block name='page_title'}{$product.name}{/block}</h1>
+              <h1 class="h1 product-summary__title">{block name='page_title'}{$product.name}{/block}</h1>
             {/block}
           {/block}
+
+          {block name='product_description_short'}
+            <div id="product-description-short-{$product.id}" class="product-summary__description product-description cms-content">{$product.description_short nofilter}</div>
+          {/block}
+
+          {if isset($product_manufacturer->id) || (isset($product.reference_to_display) && $product.reference_to_display neq '') || ($product.show_availability && $product.availability_message)}
+            <div class="product-summary__meta">
+              {if isset($product_manufacturer->id)}
+                <div class="product-summary__meta-item">
+                  <span class="product-summary__meta-label custom-meta-label">{l s='Brand' d='Shop.Theme.Catalog'}:</span>
+                  <span class="product-summary__meta-value custom-meta-value">{$product_manufacturer->name}</span>
+                </div>
+              {/if}
+              {if isset($product.reference_to_display) && $product.reference_to_display neq ''}
+                <div class="product-summary__meta-item">
+                  <span class="product-summary__meta-label custom-meta-label">{l s='Reference' d='Shop.Theme.Catalog'}:</span>
+                  <span class="product-summary__meta-value custom-meta-value">{$product.reference_to_display}</span>
+                </div>
+              {/if}
+              {if $product.show_availability && $product.availability_message}
+                <div class="product-summary__meta-item">
+                  <span class="product-summary__meta-label custom-meta-label">{l s='Disponibilidad' d='Shop.Theme.Catalog'}:</span>
+                  <span class="product-summary__meta-value">
+                    <span
+                      class="custom-meta-value {if $product.availability == 'available'}available{elseif $product.availability == 'last_remaining_items'}last-items{else}out-of-stock{/if}"
+                    >
+                      {if $product.availability == 'available'}
+                        <i class="material-icons rtl-no-flip font-reset align-bottom" style="color: #545454;">&#xE5CA;</i>
+                      {elseif $product.availability == 'last_remaining_items'}
+                        <i class="material-icons font-reset align-bottom" style="color: #545454;">&#xE002;</i>
+                      {else}
+                        <i class="material-icons font-reset align-bottom" style="color: #545454;">&#xE14B;</i>
+                      {/if}
+                      {$product.availability_message}
+                    </span>
+                  </span>
+                </div>
+              {/if}
+            </div>
+          {/if}
+
           {block name='product_prices'}
             {include file='catalog/_partials/product-prices.tpl'}
           {/block}
 
-          <div class="product-information ">
-            {block name='product_description_short'}
-              <div id="product-description-short-{$product.id}" class="product-description cms-content">{$product.description_short nofilter}</div>
-            {/block}
-
+          <div class="product-information">
             {if $product.is_customizable && count($product.customizations.fields)}
               {block name='product_customization'}
                 {include file="catalog/_partials/product-customization.tpl" customizations=$product.customizations}
@@ -104,7 +142,7 @@
                             {/block}
                           {/foreach}
                         </div>
-                    </section>
+                      </section>
                     {/if}
                   {/block}
 
@@ -127,10 +165,37 @@
 
             </div>
 
+
             {block name='hook_display_reassurance'}
-              {hook h='displayReassurance'}
+              {capture name='reassurance_content'}{hook h='displayReassurance'}{/capture}
+              {if $smarty.capture.reassurance_content|trim}
+                <div class="product-reassurance-custom">
+                  {$smarty.capture.reassurance_content nofilter}
+                </div>
+              {/if}
             {/block}
 
+            {if $product.grouped_features}
+              <div class="product-specs-custom table-responsive">
+                <table class="table table-sm mb-0">
+                  <tbody>
+                    {assign var='counter' value=0}
+                    {foreach from=$product.grouped_features item=feature}
+                      {if $counter % 2 == 0}<tr>{/if}
+                        <td class="label">{$feature.name}</td>
+                        <td class="value">{$feature.value|escape:'htmlall'|nl2br nofilter}</td>
+                      {assign var='counter' value=$counter+1}
+                      {if $counter % 2 == 0}</tr>{/if}
+                    {/foreach}
+                    {if $counter % 2 != 0}
+                        <td class="label"></td><td class="value"></td>
+                      </tr>
+                    {/if}
+                  </tbody>
+                </table>
+              </div>
+            {/if}
+          </div>
         </div>
       </div>
     </div>

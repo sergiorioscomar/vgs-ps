@@ -74,6 +74,10 @@
 {/block}
 
 {block name='stylesheets'}
+  {* Material Icons from Google Fonts CDN - Fix for icon display issue *}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {* Custom Product Cards Design *}
+  <link href="{$urls.base_url}themes/falcon/assets/css/custom-product-cards.css" rel="stylesheet">
   {include file="_partials/stylesheets.tpl" stylesheets=$stylesheets}
 {/block}
 
