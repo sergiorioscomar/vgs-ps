@@ -1,6 +1,6 @@
 # Tema PrestaShop basado en Falcon
 
-Este repositorio contiene **únicamente el tema desarrollado a partir de Falcon**, utilizado como framework base para PrestaShop 8.x.
+Este repositorio contiene el **tema desarrollado a partir de Falcon**, utilizado como framework base para PrestaShop 8.x. Se enfoca en la personalización de la ficha de producto y la optimización de la maquetación visual.
 
 📌 **Aclaración importante**  
 Este repositorio contiene solo el theme Falcon modificado.  
@@ -10,114 +10,102 @@ No incluye el core de PrestaShop, ni la carpeta `vendor`, ni `node_modules`.
 
 ## 📦 Requisitos
 
-- PrestaShop **8.x** (no compatible con PrestaShop 9)
-- Node.js (versión compatible según Falcon)
-- npm
-- Entorno local o servidor con PHP y MySQL funcionando
+- **PrestaShop**: 8.x (no compatible con PrestaShop 9).
+- **Node.js**: **v18.x** o **v20.x** (LTS). Se recomienda el uso de `nvm` para gestionar la versión.
+- **npm**: v8.x o superior.
+- **Entorno**: Local o servidor con PHP 8.x y MySQL funcionando.
 
 ---
 
-## 🚀 Instalación del tema
+## 🚀 Instalación y Uso
 
-### 1️⃣ Copiar el theme
-Clonar este repositorio o copiar la carpeta del tema dentro de:
+### 1️⃣ Instalación del tema
+1. Clonar o copiar la carpeta del tema dentro de `/prestashop/themes/falcon`.
+2. Instalar los módulos requeridos por Falcon (disponibles en sus releases oficiales) en `/prestashop/modules`.
+3. Activar el tema desde el Backoffice: `Diseño → Tema y Logotipo → Activar Falcon`.
 
-```
-/prestashop/themes/falcon
-```
+> ⚠️ **Importante**: No activar el tema hasta que los módulos de Falcon estén instalados y activos.
 
----
-
-### 2️⃣ Instalar módulos requeridos por Falcon
-Falcon requiere algunos módulos propios para funcionar correctamente.
-
-1. Descargar los módulos desde los **Releases oficiales** del repositorio de Falcon.
-2. Copiarlos dentro de:
-```
-/prestashop/modules
-```
-3. Desde el Backoffice de PrestaShop, instalar y activar los módulos requeridos.
-
-> ⚠️ Importante: no activar el theme hasta que los módulos estén instalados.
-
----
-
-### 3️⃣ Activar el theme
-Desde el Backoffice de PrestaShop:
-
-```
-Diseño → Tema y Logotipo → Activar Falcon
-```
-
----
-
-## 🎨 Compilación de estilos (SCSS)
-
-Falcon utiliza Webpack para la compilación de estilos y assets.
-
-### 4️⃣ Instalar dependencias
-Desde la carpeta `_dev` del theme:
+### 2️⃣ Compilación de assets
+Desde la carpeta `_dev` del tema:
 
 ```bash
 cd themes/falcon/_dev
+nvm use 18 # O 20, según disponibilidad
 npm install
 ```
 
----
-
-### 5️⃣ Compilar assets
-
-#### Build (producción)
-```bash
-npm run build
-```
-
-#### Desarrollo (watch)
-```bash
-npm run watch
-```
-
-Los estilos SCSS se compilan automáticamente y se reflejan en el theme activo.
+#### Comandos de Build/Watch:
+- **Producción**: `npm run build` (Minifica y optimiza assets).
+- **Desarrollo**: `npm run watch` (Compilación en tiempo real durante el desarrollo).
 
 ---
 
-## 🧩 Estructura del desarrollo
+## 🎨 Dónde tocar SCSS/TPL
 
-- `templates/`  
-  Plantillas Smarty (.tpl) modificadas para:
-  - Página de categoría
-  - Tarjeta de producto
-  - Ficha de producto
+Para modificar la estructura o el diseño, los archivos principales trabajados son:
 
-- `_dev/src/scss/`  
-  Estilos SCSS personalizados, compilados vía Webpack.
+### Plantillas (Smarty .tpl)
+- **Ficha de producto**: `templates/catalog/product.tpl`
+- **Componentes de producto**: `templates/catalog/_partials/`
+    - `product-details.tpl`
+    - `product-prices.tpl`
+    - `product-flags.tpl`
+    - `product-tabs.tpl`
+    - `product-add-to-cart.tpl`
+
+### Estilos (SCSS)
+Ruta base: `_dev/src/scss/` (o `_dev/css/` según el caso):
+- **Estructura principal**: `theme.scss` y `product.scss`.
+- **Personalizados**: 
+    - `_custom-product-cards.scss`
+    - `_custom-product-page.scss`
+
+---
+
+## 🎥 Video de Presentación
+
+Puedes ver una demostración detallada de las funcionalidades y personalizaciones realizadas en este video:
+
+🔗 **[Ver video de presentación](https://drive.google.com/file/d/1D0um1gfjJ4RLpIoCuQJzYDS8CsHIikA0/view?usp=drive_link)**
+
+---
+
+## 📊 Metodología de Trabajo
+
+Este proyecto fue desarrollado utilizando **metodología ágil con el método KANBAN**, gestionado a través de GitHub Projects:
+
+🔗 **[Ver tablero del proyecto](https://github.com/users/sergiorioscomar/projects/19)**
+
+El flujo de trabajo se organizó en columnas para mantener un seguimiento claro del progreso:
+- **Backlog**: Tareas pendientes y por priorizar
+- **In Progress**: Trabajo en desarrollo activo
+- **Review**: Cambios listos para revisión
+- **Done**: Tareas completadas
+
+Esta metodología permitió una mejor organización de las tareas, visualización del progreso y adaptación rápida a los cambios de requerimientos durante el desarrollo.
+
+---
+
+## 🧠 Dificultades y Soluciones
+
+Durante el desarrollo se enfrentaron los siguientes retos técnicos:
+
+1.  **Compatibilidad de Node.js**:
+    - *Problema*: Errores de instalación con Node v22.
+    - *Solución*: Se identificó que las dependencias de Falcon requieren **Node 16, 18 o 20**. Se integró el uso de `nvm` para switchear de versión rápidamente.
+2.  **Código Deprecado**:
+    - *Problema*: El framework base de Falcon presentaba algunas funciones o estilos deprecados.
+    - *Solución*: Se probo instalar distintas versiones hasta que se logro resolver problemas de compatibilidad.
+3.  **Rutas de Webpack (.env)**:
+    - *Problema*: Los logos y assets no se visualizaban correctamente tras la compilación.
+    - *Solución*: Se configuraron correctamente las variables de entorno en el archivo `.env` dentro de `_dev/` para que Webpack resuelva las rutas de manera absoluta según el entorno.
+4.  **Jerarquía de CSS (Especificidad)**:
+    - *Problema*: Inicialmente se abusó de `!important` debido a la carga superpuesta de estilos de módulos y PrestaShop.
+    - *Solución*: Se reestructuró el orden de importación en `theme.scss` para asegurar que los estilos personalizados sean los últimos en procesarse, permitiendo una cascada limpia sin depender de `!important`.
 
 ---
 
 ## 🧪 Datos de prueba
 
-Para el desarrollo y validación se utilizan los **productos de demostración** incluidos por defecto en PrestaShop (por ejemplo: *Hummingbird printed t-shirt*).
-
-No es necesario crear productos personalizados para esta prueba.
-
----
-
-## ⚠️ Consideraciones técnicas
-
-- Se mantiene la **funcionalidad nativa de PrestaShop**:
-  - Añadir al carrito
-  - Combinaciones de productos
-  - Actualización dinámica de precio e imagen
-- No se utilizan constructores visuales ni módulos de maquetación visual.
-- Todo el desarrollo se realiza mediante archivos `.tpl` y `.scss`.
-
----
-
-## 🧠 Notas finales
-
-Este proyecto está enfocado en la maquetación y adaptación visual del theme, respetando la arquitectura y el comportamiento estándar de PrestaShop.
-
----
-
-📄 **Resumen clave**  
-Este repositorio contiene únicamente el theme Falcon modificado, excluyendo el core de PrestaShop y las dependencias generadas (`node_modules`).
+El tema está validado utilizando los productos de demostración de PrestaShop (*Hummingbird printed t-shirt*) y tambien se realizo carga de productos identicas al figma. No se requiere base de datos personalizada, solo una instalación estándar de PS 8.x con datos de ejemplo.
