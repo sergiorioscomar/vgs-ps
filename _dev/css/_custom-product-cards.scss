@@ -5,6 +5,22 @@
 /* Cargar Google Font Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
+/* Estilos para header-top__badge */
+.header-top__badge {
+  background: #6B2BC7;
+  border-radius: 50%;
+  color: #fff;
+  font-size: .5rem;
+  font-weight: 700;
+  height: 2em;
+  line-height: 2em;
+  position: absolute;
+  right: -.9em;
+  text-align: center;
+  top: 2em;
+  width: 2em;
+}
+
 /* Estilos para left-column (Categorías y Filtros) */
 #left-column {
   font-family: 'Montserrat', sans-serif;
