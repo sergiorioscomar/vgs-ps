@@ -43,3 +43,12 @@
     </div>
   </div>
 </div>
+<div class="footer-copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="mb-0">Todos los derechos reservados - Desarrollado por VGS</p>
+      </div>
+    </div>
+  </div>
+</div>

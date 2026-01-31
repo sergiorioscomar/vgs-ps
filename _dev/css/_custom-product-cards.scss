@@ -21,6 +21,68 @@
   width: 2em;
 }
 
+/* Estilos para Footer */
+.footer-container {
+  background: #328189 !important;
+  max-width: 1600px;
+  min-height: 414px;
+  opacity: 1;
+  
+  // Textos del footer
+  p, a, li, span, div {
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0%;
+  }
+  
+  // Enlaces del footer
+  a {
+    color: #FFFFFF !important;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  // Títulos h4 en footer
+  h4, .h4 {
+    color: #C2E3EA !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 0px;
+    letter-spacing: 0%;
+    margin-bottom: 0 !important;
+    
+    &.mb-0 {
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
+/* Copyright footer */
+.footer-copyright {
+  background: #328189;
+  border-top: 1px solid #FFFFFF;
+  padding: 15px 0;
+  
+  p {
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0;
+  }
+  .text-center{
+    text-align: right !important;
+  }
+}
+
 /* Estilos para left-column (Categorías y Filtros) */
 #left-column {
   font-family: 'Montserrat', sans-serif;
