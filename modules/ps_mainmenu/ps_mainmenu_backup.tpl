@@ -56,3 +56,16 @@
     </div>
   </div>
 </div>
+
+<div class="d-md-none">
+  <div class="row">
+    <div class="col-12 position-static">
+      <button class="js-top-menu-button" data-toggle="modal" data-target="#mobile_top_menu_wrapper" aria-haspopup="true" aria-expanded="false" aria-label="Menu">
+        <i class="material-icons d-inline">&#xE5D2;</i>
+      </button>
+      <div class="dropdown js-dropdown float-left">
+        <div id="_mobile_top_menu" class="dropdown-menu"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -28,19 +28,34 @@
     <nav aria-label="breadcrumb" data-depth="{$breadcrumb.count}">
       {block name='breadcrumb_list'}
         <ol class="breadcrumb">
-          {foreach from=$breadcrumb.links item=path name=breadcrumb}
-            {block name='breadcrumb_item'}
-              <li {if $smarty.foreach.breadcrumb.last}class="breadcrumb-item active" aria-current="page"{else}class="breadcrumb-item"{/if}>
-                {if !$smarty.foreach.breadcrumb.last}
-                  <a href="{$path.url}">
+          <div class="container">
+            {foreach from=$breadcrumb.links item=path name=breadcrumb}
+              {block name='breadcrumb_item'}
+                {if !$smarty.foreach.breadcrumb.first}
+                  <span class="breadcrumb-separator">
+                    <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.53125 2.91488L12.4688 7.77301L6.53125 12.6311" stroke="#328189" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
                 {/if}
-                  {$path.title}
-                {if !$smarty.foreach.breadcrumb.last}
-                  </a>
-                {/if}
-              </li>
-            {/block}
-          {/foreach}
+                <li {if $smarty.foreach.breadcrumb.last}class="breadcrumb-item active" aria-current="page"{else}class="breadcrumb-item"{/if}>
+                  {if !$smarty.foreach.breadcrumb.last}
+                    <a href="{$path.url}">
+                  {/if}
+                    {if $smarty.foreach.breadcrumb.first}
+                      <svg class="breadcrumb-home-icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.75 10.0343L9.704 1.07925C10.144 0.64025 10.856 0.64025 11.295 1.07925L20.25 10.0343M3 7.78425V17.9093C3 18.5303 3.504 19.0343 4.125 19.0343H8.25V14.1593C8.25 13.5383 8.754 13.0343 9.375 13.0343H11.625C12.246 13.0343 12.75 13.5383 12.75 14.1593V19.0343H16.875C17.496 19.0343 18 18.5303 18 17.9093V7.78425M6.75 19.0343H15" stroke="#328189" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    {else}
+                      {$path.title}
+                    {/if}
+                    {if !$smarty.foreach.breadcrumb.last}
+                    </a>
+                  {/if}
+                </li>
+              {/block}
+            {/foreach}
+          </div>
         </ol>
       {/block}
     </nav>

@@ -4,6 +4,7 @@
     display: flex;
     gap: 2rem;
     margin-bottom: 2rem;
+    margin-top: 20px;
 
     @media (max-width: 991.98px) {
       flex-direction: column;
@@ -801,4 +802,13 @@
   color: #000000;
   font-weight: 400;
   margin-bottom: 12px;
+}
+
+#left-column {
+  border: 1px solid rgba(50, 129, 137, .3);
+  border-radius: 6px;
+  margin-top: 60px;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  padding: 20px 20px 0;
 }

@@ -59,6 +59,9 @@
           {block name='breadcrumb'}
             {include file='_partials/breadcrumb.tpl'}
           {/block}
+        </div>
+        {block name='hook_before_breadcrumb'}{/block}
+        <div class="container">
 
           <div class="row">
             {block name="left_column"}

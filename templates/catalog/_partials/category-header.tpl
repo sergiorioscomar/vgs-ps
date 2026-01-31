@@ -23,15 +23,30 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 <div id="js-product-list-header">
-    <div class="block-category">
-        <h1 class="h1">
-            {$category.name}
-            {if $listing.pagination.items_shown_from !== 1}
-                {l s='- page' d='Shop.Theme.Catalog'} {$listing.pagination.current_page}
-            {/if}
-        </h1>
-        {if $category.description && $listing.pagination.items_shown_from == 1}
-            <div id="category-description" class="cms-content">{$category.description nofilter}</div>
-        {/if}
+    <div class="category-banner-fullwidth">
+        <div class="category-banner-fullwidth__image" style="background-image: url('{if $category.image.large.url}{$category.image.large.url}{else}{$urls.img_url}c/{$category.id}.jpg{/if}');">
+            <div class="category-banner-fullwidth__overlay"></div>
+            <div class="container">
+                <div class="category-banner-fullwidth__content">
+                    <!--<h1 class="category-banner-fullwidth__title">
+                        {$category.name}
+                    </h1>-->
+                </div>
+            </div>
+        </div>
+        <div class="category-bar">
+            <div class="container d-flex align-items-center">
+                <img class="category-bar__icon" src="{$urls.base_url}img/cosmetica-icon.png" width="58" height="58" alt="{$category.name}">
+                <h1 class="category-bar__title text-white text-uppercase mb-0">{$category.name}</h1>
+            </div>
+        </div>
     </div>
+    {* Description only if needed, separate from title in banner mode *}
+    {if $category.description && $listing.pagination.items_shown_from == 1}
+        <div class="container">
+            <div class="block-category">
+                 <div id="category-description" class="cms-content">{$category.description nofilter}</div>
+            </div>
+        </div>
+    {/if}
 </div>
