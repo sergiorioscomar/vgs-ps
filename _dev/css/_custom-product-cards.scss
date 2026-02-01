@@ -24,12 +24,132 @@
 /* Estilos para Footer */
 .footer-container {
   background: #328189 !important;
-  max-width: 1600px;
-  min-height: 414px;
+  width: 100vw !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  min-height: 254px;
   opacity: 1;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  margin-bottom: 0 !important;
   
-  // Textos del footer
-  p, a, li, span, div {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  #footer {
+    margin-bottom: 0;
+  }
+  
+  // Grid de 4 columnas
+  #footer {
+    display: flex;
+    flex-wrap: wrap;
+    
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+  
+  // Información de contacto
+  .footer-contact {
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      
+      svg {
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      
+      a {
+        color: #FFFFFF !important;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      
+      span {
+        color: #FFFFFF;
+      }
+    }
+  }
+  
+  // Títulos de columnas
+  .footer-title {
+    color: #C2E3EA !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 19px !important;
+    line-height: 23px !important;
+    letter-spacing: 0% !important;
+    margin-bottom: 20px !important;
+    text-transform: uppercase;
+  }
+  
+  // Listas de enlaces
+  .footer-links {
+    padding-left: 0;
+    list-style: none;
+    
+    li {
+      margin-bottom: 10px;
+      
+      a {
+        color: #FFFFFF !important;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
+  // Títulos h4 generales
+  h4, .h4 {
+    color: #C2E3EA !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 19px !important;
+    line-height: 23px !important;
+    letter-spacing: 0% !important;
+    margin-bottom: 20px !important;
+  }
+  
+  // Enlaces generales
+  a {
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  // Textos generales
+  p, li, span, div {
     color: #FFFFFF !important;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
@@ -38,28 +158,16 @@
     letter-spacing: 0%;
   }
   
-  // Enlaces del footer
-  a {
-    color: #FFFFFF !important;
-    text-decoration: none;
-    
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  
-  // Títulos h4 en footer
-  h4, .h4 {
-    color: #C2E3EA !important;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 19px;
-    line-height: 0px;
-    letter-spacing: 0%;
-    margin-bottom: 0 !important;
-    
-    &.mb-0 {
-      margin-bottom: 0 !important;
+  // Contacto
+  .footer-contact {
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      
+      svg {
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
     }
   }
 }
@@ -69,6 +177,12 @@
   background: #328189;
   border-top: 1px solid #FFFFFF;
   padding: 15px 0;
+  width: 100vw !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
   
   p {
     color: #FFFFFF !important;
@@ -86,12 +200,18 @@
 /* Estilos para left-column (Categorías y Filtros) */
 #left-column {
   font-family: 'Montserrat', sans-serif;
-  border: 1px solid rgba(50, 129, 137, .3);
-  border-radius: 6px;
   padding: 0;
+}
+
+#left-column-intern {
+  border: 1px solid rgba(50, 129, 137, .3);
+  border-radius: 8px;
   overflow: hidden;
   
-  // Título "Categorías" con borde inferior
+  // Variable para el separador SVG
+  $separator-svg: url("data:image/svg+xml,%3Csvg width='265' height='1' viewBox='0 0 265 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline opacity='0.3' x1='-4.37114e-08' y1='0.5' x2='265' y2='0.499977' stroke='%23328189'/%3E%3C/svg%3E");
+  
+  // Título "Categorías" con separador SVG
   .left-col-title {
     background: #328189;
     color: #fff;
@@ -102,14 +222,38 @@
     padding: 12px 20px;
     margin: 0;
     border-radius: 6px 6px 0 0;
-    border-bottom: 1px solid rgba(50, 129, 137, .3);
+    position: relative;
     margin-bottom: 24px;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-image: $separator-svg;
+      background-repeat: repeat-x;
+      background-size: 265px 1px;
+    }
   }
   
-  // Wrapper de categorías con borde inferior
+  // Wrapper de categorías con separador SVG
   .list-group-wrapper {
-    border-bottom: 1px solid rgba(50, 129, 137, .3);
+    position: relative;
     margin-bottom: 24px;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      right: 20px;
+      height: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg width='265' height='1' viewBox='0 0 265 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline opacity='0.3' x1='-4.37114e-08' y1='0.5' x2='265' y2='0.499977' stroke='%23328189'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 265px 1px;
+    }
   }
   
   // Wrapper de categorías
@@ -128,7 +272,7 @@
     padding: 20px 20px 15px;
   }
   
-  // Títulos principales: "Filtros"
+  // Títulos principales: "Filtros" con separador SVG
   .filter-title {
     background: #328189;
     color: #fff;
@@ -138,7 +282,19 @@
     line-height: 100%;
     padding: 12px 20px;
     margin: 0;
-    border-top: 1px solid rgba(50, 129, 137, .3);
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg width='265' height='1' viewBox='0 0 265 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline opacity='0.3' x1='-4.37114e-08' y1='0.5' x2='265' y2='0.499977' stroke='%23328189'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 265px 1px;
+    }
     
     p {
       color: #fff;
@@ -148,10 +304,29 @@
     }
   }
   
-  // Card de filtros
+  // Card de filtros con separador SVG
   .card {
     border: none;
     border-radius: 0;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      right: 20px;
+      height: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg width='265' height='1' viewBox='0 0 265 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline opacity='0.3' x1='-4.37114e-08' y1='0.5' x2='265' y2='0.499977' stroke='%23328189'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 265px 1px;
+    }
+    
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
     
     .card-header {
       background: transparent;
@@ -218,7 +393,7 @@
   .search-filters__block {
     border: none;
     border-bottom: 0;
-    padding: 15px 20px;
+    padding: 20px 20px;
     
     &:last-child {
       padding-bottom: 20px;
@@ -230,9 +405,26 @@
   }
   
   .search-filters__header {
-    border-bottom: 1px solid #e0e0e0 !important;
+    position: relative;
     padding-bottom: 10px !important;
     margin-bottom: 15px !important;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 2px;
+      right: 2px;
+      height: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg width='265' height='1' viewBox='0 0 265 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline opacity='0.3' x1='-4.37114e-08' y1='0.5' x2='265' y2='0.499977' stroke='%23328189'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 265px 1px;
+    }
+  }
+  
+  // Wrapper de filtros de búsqueda
+  #search_filters_wrapper {
+    padding: 0;
   }
   
   // Contenedor de filtros
@@ -752,13 +944,21 @@
   &__image {
     position: relative;
     width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     min-height: 300px;
     display: flex;
     align-items: center;
     overflow: hidden;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
   }
 
   &__overlay {
@@ -767,7 +967,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.15);
     z-index: 1;
   }
 
@@ -870,13 +1070,21 @@
   &__image {
     position: relative;
     width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     min-height: 300px;
     display: flex;
     align-items: center;
     overflow: hidden;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
   }
 
   &__overlay {
@@ -885,7 +1093,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.15);
     z-index: 1;
   }
 
