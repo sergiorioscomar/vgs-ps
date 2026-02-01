@@ -109,3 +109,33 @@ Durante el desarrollo se enfrentaron los siguientes retos técnicos:
 ## 🧪 Datos de prueba
 
 El tema está validado utilizando los productos de demostración de PrestaShop (*Hummingbird printed t-shirt*) y tambien se realizo carga de productos identicas al figma. No se requiere base de datos personalizada, solo una instalación estándar de PS 8.x con datos de ejemplo.
+
+---
+
+## 📝 Nota Importante - Header y Footer
+
+**Se agregó el Header y Footer completos que faltaban en la presentación anterior.**
+
+La implementación incluye:
+- **Header completo**: Con menú de navegación, buscador y categorías
+- **Footer completo**: Con información de contacto y enlaces relevantes
+
+🎥 **La demostración completa está disponible en el siguiente video**:
+
+🔗 **[Ver video con Header y Footer](https://drive.google.com/file/d/1w2s1N6-udrY5c7L0qWphGfD1lKJ8McQf/view?usp=sharing)**
+
+### Capturas de pantalla
+
+A continuación se muestran las vistas completas del sitio con el header y footer implementados:
+
+#### Vista Principal con Header y Footer
+![Vista Principal](img/ps_1.png)
+
+#### Buscador Funcional
+![Buscador](img/ps_1_buscador.png)
+
+#### Navegación por Categorías
+![Menú de Categorías](img/ps_2_menu.png)
+
+#### Vista de Categoría
+![Vista de Categoría](img/ps_2_categoria.png)
