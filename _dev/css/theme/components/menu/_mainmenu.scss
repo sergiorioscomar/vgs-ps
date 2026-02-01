@@ -138,6 +138,7 @@
       opacity: 0;
       transition: 0.2s ease-in;
       transform: translateY(5px);
+      display: none !important; // Ocultar subcategorías en desktop
     }
   }
 }
