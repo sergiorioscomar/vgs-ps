@@ -6,7 +6,7 @@
   &__item-header {
     display: flex;
     align-items: center;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       display: block;
     }
   }
@@ -14,7 +14,7 @@
   &__dropdown {
     margin: -#{$modal-inner-padding} -#{$modal-inner-padding} map.get($spacers, 3);
     border-bottom: 1px solid $border-color;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       position: relative;
       display: flex;
       align-items: center;
@@ -24,7 +24,7 @@
   }
 
   &__list {
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       margin: 0 0 map.get($spacers, 2);
 
       &--1 {
@@ -38,7 +38,7 @@
     display: block;
     padding: $modal-inner-padding;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       display: inline-block;
       padding: 0;
     }
@@ -52,14 +52,14 @@
         text-decoration: none;
       }
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         padding: map.get($spacers, 3) map.get($spacers, 4);
       }
     }
 
     &--sub {
       color: $gray-900;
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         margin: 0 0 map.get($spacers, 1);
       }
     }
@@ -70,21 +70,21 @@
 
     &--2 {
       padding-left: #{$modal-inner-padding + rem-calc(map.get($spacers, 2))};
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         padding: 0;
       }
     }
 
     &--3 {
       padding-left: #{$modal-inner-padding + rem-calc(map.get($spacers, 3))};
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         padding-left: map.get($spacers, 2);
       }
     }
 
     &--4 {
       padding-left: #{$modal-inner-padding + rem-calc(map.get($spacers, 4))};
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         padding-left: map.get($spacers, 2);
       }
     }
@@ -100,12 +100,12 @@
       }
     }
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       border: 0;
     }
 
     &--active {
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         #{$self} {
           &__sub {
             visibility: visible;
@@ -117,7 +117,7 @@
     }
 
     &--1 {
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         @include custom-col-padded(25%);
       }
     }
@@ -125,7 +125,7 @@
 
   &__sub {
     background: $gray-100;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       position: absolute;
       top: 100%;
       right: 0;
