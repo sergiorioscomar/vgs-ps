@@ -47,7 +47,7 @@
   {/if}
 {/function}
 
-<div class="d-none d-md-block header-top__block header-top__block--menu mt-1">
+<div class="d-none d-lg-block header-top__block header-top__block--menu mt-1">
   <div class="container">
     <div class="row">
       <div id="_desktop_top_menu" class="col">

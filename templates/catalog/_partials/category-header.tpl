@@ -24,7 +24,8 @@
  *}
 <div id="js-product-list-header">
     <div class="category-banner-fullwidth">
-        <div class="category-banner-fullwidth__image" style="background-image: url('{if $category.image.large.url}{$category.image.large.url}{else}{$urls.img_url}c/{$category.id}.jpg{/if}');">
+        <div class="category-banner-fullwidth__image">
+            <img class="category-banner-fullwidth__img" src="{$urls.base_url}img/c/{$category.id}.jpg" width="1920" height="450" alt="{$category.name}">
             <div class="category-banner-fullwidth__overlay"></div>
             <div class="container">
                 <div class="category-banner-fullwidth__content">

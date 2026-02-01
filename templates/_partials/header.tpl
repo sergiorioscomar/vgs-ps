@@ -45,7 +45,7 @@
                     <div class="row align-items-center header-top__row">
                         
                         {* Mobile Menu Toggle *}
-                        <div class="col-auto d-md-none">
+                        <div class="col-auto d-lg-none">
                             <a class="header-top__link" rel="nofollow" href="#" data-toggle="modal" data-target="#mobile_top_menu_wrapper">
                                 <span class="material-icons">menu</span>
                             </a>
@@ -70,7 +70,7 @@
                         </div>
 
                         {* Search Bar + User Icons *}
-                        <div class="col-lg-10 col-md-9 col d-none d-md-flex align-items-center">
+                        <div class="col-lg-10 col-md-9 col d-none d-lg-flex align-items-center">
                             <div class="search-container flex-grow-1">
                                 <div class="header-top__modules row align-items-center no-gutters w-100">
                                     {hook h='displayTop'}
